@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 
-import { addContact, editContact } from '../actions';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -53,7 +51,7 @@ class FormContact extends React.Component {
         const mailWork = this.state.mailWork;
         const birthdayDate = this.state.birthdayDate;
         if (this.props.route.type === 'add') {
-            this.props.onAdd(name,
+            this.props.addContact(name,
                 surname,
                 birthdayDate,
                 mailPersone,
@@ -62,7 +60,7 @@ class FormContact extends React.Component {
                 phoneWork);
         }
         if (this.props.route.type === 'edit') {
-            this.props.onEdit(id,
+            this.props.editContact(id,
                 name,
                 surname,
                 birthdayDate,
@@ -182,13 +180,5 @@ class FormContact extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    contacts: state
-});
+export default FormContact;
 
-const mapDispatchToProps = dispatch => ({
-    onAdd: (...value) => dispatch(addContact(...value)),
-    onEdit: (...value) => dispatch(editContact(...value))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FormContact);

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { default as contacts } from './contact';
-import { default as filter }  from './filter';
+import { default as contacts } from './contacts';
+import { default as filterValue }  from './filter';
 
 const reducer = combineReducers({
     contacts,
-    filter
+    filterValue
 });
 
 export default reducer;

@@ -1,6 +1,6 @@
 import { ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT } from '../actions';
 
-function reducer(state = [], action) {
+const reducer = (state = {}, action = {}) => {
     switch (action.type) {
         case DELETE_CONTACT:
             const index = state.findIndex(contact => contact.id === action.id);

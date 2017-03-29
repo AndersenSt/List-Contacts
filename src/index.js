@@ -8,7 +8,7 @@ import reducer from './reducers';
 import initialState from './initialState';
 import App from './components/App';
 import HomePage from './components/HomePage';
-import FormContact from './components/FormContact';
+import FormContactContainer from './containers/FormContactContainer';
 
 const store = createStore(reducer, initialState);
 
@@ -17,8 +17,8 @@ ReactDom.render(
         <Router history={hashHistory}>
             <Route component={App}>
                 <Route path='/' component={HomePage} />
-                <Route path='/add-contact' type='add' component={FormContact} />
-                <Route path='/edit-contact/:id' type='edit' component={FormContact} />
+                <Route path='/add-contact' type='add' component={FormContactContainer} />
+                <Route path='/edit-contact/:id' type='edit' component={FormContactContainer} />
             </Route>
         </Router>
     </Provider>,

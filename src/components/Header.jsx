@@ -3,7 +3,7 @@ import { hashHistory } from 'react-router';
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import Filter from './Filter';
+import FilterContainer from '../containers/FilterContainer';
 
 class Header extends React.Component {
     createContact() {
@@ -13,7 +13,7 @@ class Header extends React.Component {
     render() {
         return (
             <header className='header'>
-                <Filter />
+                <FilterContainer />
                 <FloatingActionButton
                     mini={true}
                     onClick={() => this.createContact()}
