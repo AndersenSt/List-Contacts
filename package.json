@@ -1,5 +1,5 @@
 {
-  "name": "contacts",
+  "name": "list-contacts",
   "version": "1.0.0",
   "scripts": {
     "start": "webpack-dev-server --inline --hot --content-base ./public",

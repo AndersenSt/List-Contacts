@@ -4,6 +4,8 @@ import { hashHistory } from 'react-router';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import FilterContainer from '../containers/FilterContainer';
+import ShowBirthday from './ShowBirthday';
+import ShowBirthdayContainer from '../containers/ShowBirthdayContainer';
 
 class Header extends React.Component {
     createContact() {
@@ -14,6 +16,7 @@ class Header extends React.Component {
         return (
             <header className='header'>
                 <FilterContainer />
+                <ShowBirthdayContainer />
                 <FloatingActionButton
                     mini={true}
                     onClick={() => this.createContact()}

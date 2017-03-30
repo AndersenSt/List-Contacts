@@ -164,7 +164,7 @@ class FormContact extends React.Component {
                         className='form-input'
                     />
                     <RaisedButton
-                        label="back"
+                        label="cancel"
                         primary={true}
                         onClick={this.handleClick}
                     />

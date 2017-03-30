@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import ListContacts from '../components/ListContacts';
 
-function getFilterContacts(contacts, filterValue) {
+const getFilterContacts = (contacts, filterValue) => {
     const contArray = contacts.filter(contact => {
         return contact.name.toLowerCase().includes(filterValue);
     });

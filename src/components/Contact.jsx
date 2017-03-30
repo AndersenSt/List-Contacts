@@ -4,7 +4,7 @@ import { hashHistory } from 'react-router';
 import { List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
-import { grey400, darkBlack, lightBlack, indigo500 } from 'material-ui/styles/colors';
+import { grey400, darkBlack, lightBlack, cyan500 } from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
@@ -44,7 +44,7 @@ class ListContacts extends React.Component {
     }
 
     handleEdit() {
-         hashHistory.push(`/edit-contact/${this.props.id}`);
+        hashHistory.push(`/edit-contact/${this.props.id}`);
     }
 
     render() {
@@ -55,6 +55,7 @@ class ListContacts extends React.Component {
                     leftAvatar={<Avatar src="" />}
                     rightIconButton={
                         <IconMenu
+                            
                             iconButtonElement={
                                 <IconButton
                                     touch={true}
@@ -76,31 +77,39 @@ class ListContacts extends React.Component {
                     nestedItems={[
                         <ListItem
                             key={2}
-                            leftIcon={<CommunicationCall color={indigo500} />}
-                            primaryText={this.props.phoneMobile}
+                            leftIcon={<CommunicationCall color={cyan500} />}
+                            primaryText={<a href={`tel:${this.props.phoneMobile}`}>
+                                {this.props.phoneMobile}
+                            </a>}
                             secondaryText="Mobile"
                         />,
                         <ListItem
                             key={3}
-                            leftIcon={<CommunicationCall color={indigo500} />}
-                            primaryText={this.props.phonWork}
+                            leftIcon={<CommunicationCall color={cyan500} />}
+                            primaryText={<a href={`tel:${this.props.phonWork}`}>
+                                {this.props.phonWork}
+                            </a>}
                             secondaryText="Work"
                         />,
                         <ListItem
                             key={4}
-                            leftIcon={<CommunicationEmail color={indigo500} />}
-                            primaryText={this.props.mailPersone}
+                            leftIcon={<CommunicationEmail color={cyan500} />}
+                            primaryText={<a href={`mailto:${this.props.mailPersone}`}>
+                                {this.props.mailPersone}
+                            </a>}
                             secondaryText="Personal"
                         />,
                         <ListItem
                             key={5}
-                            leftIcon={<CommunicationEmail color={indigo500} />}
-                            primaryText={this.props.mailWork}
+                            leftIcon={<CommunicationEmail color={cyan500} />}
+                            primaryText={<a href={`mailto:${this.props.mailWork}`}>
+                                {this.props.mailWork}
+                            </a>}
                             secondaryText="Work"
                         />,
                         <ListItem
                             key={6}
-                            leftIcon={<Cake color={indigo500} />}
+                            leftIcon={<Cake color={cyan500} />}
                             primaryText={this.props.birthdayDate}
                             secondaryText="Birthday Date"
                         />,
