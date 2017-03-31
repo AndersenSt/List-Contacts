@@ -55,7 +55,6 @@ class ListContacts extends React.Component {
                     leftAvatar={<Avatar src="" />}
                     rightIconButton={
                         <IconMenu
-                            
                             iconButtonElement={
                                 <IconButton
                                     touch={true}
@@ -65,10 +64,10 @@ class ListContacts extends React.Component {
                                 </IconButton>
                             }
                             open={this.state.open}
-                            onClick={this.handleClick}
                         >
                             <MenuItem onClick={this.handleEdit}>Edit</MenuItem>
                             <MenuItem onClick={this.handleDelete}>Delete</MenuItem>
+                            <MenuItem onClick={this.handleClick}>Cancel</MenuItem>
                         </IconMenu>
                     }
                     primaryText={`${this.props.name} ${this.props.surname}`}
@@ -76,38 +75,55 @@ class ListContacts extends React.Component {
                     onClick={this.handleNestedItemsClick}
                     nestedItems={[
                         <ListItem
+                            disabled={true}
                             key={2}
                             leftIcon={<CommunicationCall color={cyan500} />}
-                            primaryText={<a href={`tel:${this.props.phoneMobile}`}>
+                            primaryText={<a
+                                href={`tel:${this.props.phoneMobile}`}
+                                className='link'
+                            >
                                 {this.props.phoneMobile}
                             </a>}
                             secondaryText="Mobile"
                         />,
                         <ListItem
+                            disabled={true}
                             key={3}
                             leftIcon={<CommunicationCall color={cyan500} />}
-                            primaryText={<a href={`tel:${this.props.phonWork}`}>
+                            primaryText={<a
+                                href={`tel:${this.props.phonWork}`}
+                                className='link'
+                            >
                                 {this.props.phonWork}
                             </a>}
                             secondaryText="Work"
                         />,
                         <ListItem
+                            disabled={true}
                             key={4}
                             leftIcon={<CommunicationEmail color={cyan500} />}
-                            primaryText={<a href={`mailto:${this.props.mailPersone}`}>
+                            primaryText={<a
+                                href={`mailto:${this.props.mailPersone}`}
+                                className='link'
+                            >
                                 {this.props.mailPersone}
                             </a>}
                             secondaryText="Personal"
                         />,
                         <ListItem
+                            disabled={true}
                             key={5}
                             leftIcon={<CommunicationEmail color={cyan500} />}
-                            primaryText={<a href={`mailto:${this.props.mailWork}`}>
+                            primaryText={<a
+                                href={`mailto:${this.props.mailWork}`}
+                                className='link'
+                            >
                                 {this.props.mailWork}
                             </a>}
                             secondaryText="Work"
                         />,
                         <ListItem
+                            disabled={true}
                             key={6}
                             leftIcon={<Cake color={cyan500} />}
                             primaryText={this.props.birthdayDate}

@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import Notifications from 'material-ui/svg-icons/Social/notifications';
 import NotificationsActive from 'material-ui/svg-icons/Social/notifications-active';
-import { cyan500, pinkA400 } from 'material-ui/styles/colors';
+import { cyan500, redA400 } from 'material-ui/styles/colors';
 import { ListItem } from 'material-ui/List';
 import Cake from 'material-ui/svg-icons/Social/cake';
 
@@ -38,11 +38,14 @@ class ShowBirthday extends React.Component {
         const todayBirthday = this.props.birthdayContacts;
         return (
             <div>
-                <IconButton tooltip="Show Birthday" onClick={this.handleClick}>
+                <IconButton
+                    tooltip="Show Birthday"
+                    onClick={this.handleClick}
+                    disabled={todayBirthday.length === 0}>
                     {
                         todayBirthday.length === 0 ?
-                            <Notifications color={cyan500} /> :
-                            <NotificationsActive color={pinkA400} />
+                            <Notifications /> :
+                            <NotificationsActive color={redA400} />
                     }
                 </IconButton>
                 <Dialog
@@ -54,6 +57,7 @@ class ShowBirthday extends React.Component {
                 >
                     {todayBirthday.map((contact, index) =>
                         <ListItem
+                            disabled={true}
                             key={index}
                             leftIcon={<Cake color={cyan500} />}
                             primaryText={`${contact.name} ${contact.surname}`}

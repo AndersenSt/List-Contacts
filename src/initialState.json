@@ -16,12 +16,40 @@
         },
         {
             "id": 2,
+            "name": "AMANDA",
+            "surname": "MITCHAL",
+            "birthdayDate": "1988-03-31",
+            "mail": {
+                "persone": "mithal@mail.ru",
+                "work": "amanda@gmail.com"
+            },
+            "phone": {
+                "mobile": "096-348-72-59",
+                "work": "376-678-45-67"
+            }
+        },
+        {
+            "id": 3,
             "name": "IVAN",
             "surname": "IVANOV",
             "birthdayDate": "1978-10-26",
             "mail": {
                 "persone": "alavackii@mail.ru",
                 "work": "nikolay@gmail.com"
+            },
+            "phone": {
+                "mobile": "096-348-72-59",
+                "work": "376-678-45-67"
+            }
+        },
+        {
+            "id": 4,
+            "name": "JYLIA",
+            "surname": "IVANOVA",
+            "birthdayDate": "1989-03-30",
+            "mail": {
+                "persone": "ivanova@mail.ru",
+                "work": "jylia@gmail.com"
             },
             "phone": {
                 "mobile": "096-348-72-59",

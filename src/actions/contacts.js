@@ -2,7 +2,7 @@ export const ADD_CONTACT = 'ADD_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
 export const EDIT_CONTACT = 'EDIT_CONTACT';
 
-let nextId = 3;
+let nextId = 5;
 
 export const addContact = (name, surname, birthdayDate, mailPersone, mailWork, phoneMobile, phoneWork) => ({
     type: ADD_CONTACT,
