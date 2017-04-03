@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { deleteContact } from '../actions';
+import { deleteContact, updateContacts } from '../actions';
 import { bindActionCreators } from 'redux';
 
 import ListContacts from '../components/ListContacts';
@@ -16,7 +16,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    deleteContact: bindActionCreators(deleteContact, dispatch)
+    deleteContact: bindActionCreators(deleteContact, dispatch),
+    updateContacts: bindActionCreators(updateContacts, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListContacts);

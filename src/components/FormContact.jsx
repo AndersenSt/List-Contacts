@@ -70,6 +70,7 @@ class FormContact extends React.Component {
                 phoneWork);
         }
         hashHistory.push('/');
+        this.props.updateContacts();
     }
 
     handleChange(event) {

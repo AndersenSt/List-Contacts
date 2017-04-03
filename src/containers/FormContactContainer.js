@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addContact, editContact } from '../actions';
+import { addContact, editContact, updateContacts } from '../actions';
 import FormContact from '../components/FormContact';
 
 const mapStateToProps = state => ({
@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     addContact: bindActionCreators(addContact, dispatch),
-    editContact: bindActionCreators(editContact, dispatch)
+    editContact: bindActionCreators(editContact, dispatch),
+    updateContacts: bindActionCreators(updateContacts, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormContact);

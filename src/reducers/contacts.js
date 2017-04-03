@@ -1,7 +1,11 @@
-import { ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT } from '../actions';
+import { ADD_CONTACT, DELETE_CONTACT, EDIT_CONTACT, INIT_CONTACTS } from '../actions';
 
-const reducer = (state = {}, action = {}) => {
+const reducer = (state = [], action = {}) => {
     switch (action.type) {
+        case INIT_CONTACTS:
+            const contacts = action.dataConts;
+            return [...state, ...contacts];
+
         case DELETE_CONTACT:
             const index = state.findIndex(contact => contact.id === action.id);
             return [
@@ -10,8 +14,9 @@ const reducer = (state = {}, action = {}) => {
             ];
 
         case ADD_CONTACT:
+            const contId = state.length;
             const contact = {
-                id: action.id,
+                id: contId,
                 name: action.name,
                 surname: action.surname,
                 birthdayDate: action.birthdayDate,

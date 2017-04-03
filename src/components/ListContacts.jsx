@@ -4,6 +4,7 @@ import Contact from './Contact';
 import Subheader from 'material-ui/Subheader';
 
 class ListContacts extends React.Component {
+    
     render() {
         const contacts = this.props.contacts;
         return (
@@ -21,6 +22,7 @@ class ListContacts extends React.Component {
                         phonWork={contact.phone.work}
                         birthdayDate={contact.birthdayDate}
                         onDelete={this.props.deleteContact}
+                        onUpdate={this.props.updateContacts}
                     />)
                 }
             </div>

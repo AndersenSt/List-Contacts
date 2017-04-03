@@ -1,12 +1,19 @@
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
 export const EDIT_CONTACT = 'EDIT_CONTACT';
+export const INIT_CONTACTS = 'INIT_CONTACTS';
+export const UPDATE_CONTACTS = 'UPDATE_CONTACTS';
 
-let nextId = 5;
+export const initContacts = () => ({
+    type: INIT_CONTACTS
+});
+
+export const updateContacts = () => ({
+    type: UPDATE_CONTACTS
+});
 
 export const addContact = (name, surname, birthdayDate, mailPersone, mailWork, phoneMobile, phoneWork) => ({
     type: ADD_CONTACT,
-    id: nextId++,
     name,
     surname,
     birthdayDate,

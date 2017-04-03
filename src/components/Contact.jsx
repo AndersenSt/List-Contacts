@@ -41,6 +41,7 @@ class ListContacts extends React.Component {
 
     handleDelete() {
         this.props.onDelete(this.props.id);
+        this.props.onUpdate();
     }
 
     handleEdit() {
