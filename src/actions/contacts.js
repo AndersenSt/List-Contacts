@@ -12,18 +12,18 @@ export const updateContacts = () => ({
     type: UPDATE_CONTACTS
 });
 
-export const addContact = (name, surname, birthdayDate, mailPersone, mailWork, phoneMobile, phoneWork) => ({
+export const addContact = contact => ({
     type: ADD_CONTACT,
-    name,
-    surname,
-    birthdayDate,
+    name: contact.name,
+    surname: contact.surname,
+    birthdayDate: contact.birthdayDate,
     mail: {
-        persone: mailPersone,
-        work: mailWork,
+        persone: contact.mail.persone,
+        work: contact.mail.work,
     },
     phone: {
-        mobile: phoneMobile,
-        work: phoneWork
+        mobile: contact.phone.mobile,
+        work: contact.phone.work
     }
 });
 
@@ -32,18 +32,18 @@ export const deleteContact = id => ({
     id
 });
 
-export const editContact = (id, name, surname, birthdayDate, mailPersone, mailWork, phoneMobile, phonWork) => ({
+export const editContact = contact => ({
     type: EDIT_CONTACT,
-    id,
-    name,
-    surname,
-    birthdayDate,
+    id: contact.id,
+    name: contact.name,
+    surname: contact.surname,
+    birthdayDate: contact.birthdayDate,
     mail: {
-        persone: mailPersone,
-        work: mailWork,
+        persone: contact.mail.persone,
+        work: contact.mail.work,
     },
     phone: {
-        mobile: phoneMobile,
-        work: phonWork
+        mobile: contact.phone.mobile,
+        work: contact.phone.work
     }
 });

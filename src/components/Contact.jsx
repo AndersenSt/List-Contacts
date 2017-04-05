@@ -40,97 +40,106 @@ class ListContacts extends React.Component {
     }
 
     handleDelete() {
-        this.props.onDelete(this.props.id);
+        this.props.onDelete(this.props.contact.id);
         this.props.onUpdate();
     }
 
     handleEdit() {
-        hashHistory.push(`/edit-contact/${this.props.id}`);
+        hashHistory.push(`/edit-contact/${this.props.contact.id}`);
     }
 
     render() {
+
+        const iconButton = (
+            <IconButton
+                touch={true}
+                onClick={this.handleClick}
+            >
+                <MoreVertIcon color={grey400} />
+            </IconButton>
+        );
+
+        const iconMenu = (
+            <IconMenu
+                iconButtonElement={iconButton}
+                open={this.state.open}
+            >
+                <MenuItem onClick={this.handleEdit}>Edit</MenuItem>
+                <MenuItem onClick={this.handleDelete}>Delete</MenuItem>
+                <MenuItem onClick={this.handleClick}>Cancel</MenuItem>
+            </IconMenu>
+        );
+
+        const contact = this.props.contact;
+
+        const nestedItems = ([
+            <ListItem
+                disabled={true}
+                key={2}
+                leftIcon={<CommunicationCall color={cyan500} />}
+                primaryText={<a
+                    href={`tel:${contact.phone.mobile}`}
+                    className='link'
+                >
+                    {contact.phone.mobile}
+                </a>}
+                secondaryText="Mobile"
+            />,
+            <ListItem
+                disabled={true}
+                key={3}
+                leftIcon={<CommunicationCall color={cyan500} />}
+                primaryText={<a
+                    href={`tel:${contact.phone.work}`}
+                    className='link'
+                >
+                    {contact.phone.work}
+                </a>}
+                secondaryText="Work"
+            />,
+            <ListItem
+                disabled={true}
+                key={4}
+                leftIcon={<CommunicationEmail color={cyan500} />}
+                primaryText={<a
+                    href={`mailto:${contact.mail.persone}`}
+                    className='link'
+                >
+                    {contact.mail.persone}
+                </a>}
+                secondaryText="Personal"
+            />,
+            <ListItem
+                disabled={true}
+                key={5}
+                leftIcon={<CommunicationEmail color={cyan500} />}
+                primaryText={<a
+                    href={`mailto:${contact.mail.work}`}
+                    className='link'
+                >
+                    {contact.mail.work}
+                </a>}
+                secondaryText="Work"
+            />,
+            <ListItem
+                disabled={true}
+                key={6}
+                leftIcon={<Cake color={cyan500} />}
+                primaryText={contact.birthdayDate}
+                secondaryText="Birthday Date"
+            />
+        ]);
+
         return (
             <List>
                 <ListItem
                     key={1}
                     leftAvatar={<Avatar src="" />}
-                    rightIconButton={
-                        <IconMenu
-                            iconButtonElement={
-                                <IconButton
-                                    touch={true}
-                                    onClick={this.handleClick}
-                                >
-                                    <MoreVertIcon color={grey400} />
-                                </IconButton>
-                            }
-                            open={this.state.open}
-                        >
-                            <MenuItem onClick={this.handleEdit}>Edit</MenuItem>
-                            <MenuItem onClick={this.handleDelete}>Delete</MenuItem>
-                            <MenuItem onClick={this.handleClick}>Cancel</MenuItem>
-                        </IconMenu>
-                    }
-                    primaryText={`${this.props.name} ${this.props.surname}`}
+                    rightIconButton={iconMenu}
+                    primaryText={`${contact.name} ${contact.surname}`}
                     open={this.state.nestedItemsOpen}
                     onClick={this.handleNestedItemsClick}
-                    nestedItems={[
-                        <ListItem
-                            disabled={true}
-                            key={2}
-                            leftIcon={<CommunicationCall color={cyan500} />}
-                            primaryText={<a
-                                href={`tel:${this.props.phoneMobile}`}
-                                className='link'
-                            >
-                                {this.props.phoneMobile}
-                            </a>}
-                            secondaryText="Mobile"
-                        />,
-                        <ListItem
-                            disabled={true}
-                            key={3}
-                            leftIcon={<CommunicationCall color={cyan500} />}
-                            primaryText={<a
-                                href={`tel:${this.props.phonWork}`}
-                                className='link'
-                            >
-                                {this.props.phonWork}
-                            </a>}
-                            secondaryText="Work"
-                        />,
-                        <ListItem
-                            disabled={true}
-                            key={4}
-                            leftIcon={<CommunicationEmail color={cyan500} />}
-                            primaryText={<a
-                                href={`mailto:${this.props.mailPersone}`}
-                                className='link'
-                            >
-                                {this.props.mailPersone}
-                            </a>}
-                            secondaryText="Personal"
-                        />,
-                        <ListItem
-                            disabled={true}
-                            key={5}
-                            leftIcon={<CommunicationEmail color={cyan500} />}
-                            primaryText={<a
-                                href={`mailto:${this.props.mailWork}`}
-                                className='link'
-                            >
-                                {this.props.mailWork}
-                            </a>}
-                            secondaryText="Work"
-                        />,
-                        <ListItem
-                            disabled={true}
-                            key={6}
-                            leftIcon={<Cake color={cyan500} />}
-                            primaryText={this.props.birthdayDate}
-                            secondaryText="Birthday Date"
-                        />,
-                    ]}
+                    nestedItems={nestedItems}
                 />
             </List>
         );

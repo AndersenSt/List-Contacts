@@ -42,54 +42,34 @@ class FormContact extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const id = this.props.params.id;
-        const name = this.state.name.toUpperCase();
-        const surname = this.state.surname.toUpperCase();
-        const phoneMobile = this.state.phoneMobile;
-        const phoneWork = this.state.phoneWork;
-        const mailPersone = this.state.mailPersone;
-        const mailWork = this.state.mailWork;
-        const birthdayDate = this.state.birthdayDate;
+        const dataContact = {
+            id: this.props.params.id,
+            name: this.state.name.toUpperCase(),
+            surname: this.state.surname.toUpperCase(),
+            birthdayDate: this.state.birthdayDate,
+            mail: {
+                persone: this.state.mailPersone,
+                work: this.state.mailWork,
+            },
+            phone: {
+                mobile: this.state.phoneMobile,
+                work: this.state.phoneWork
+            }
+        };
+
         if (this.props.route.type === 'add') {
-            this.props.addContact(name,
-                surname,
-                birthdayDate,
-                mailPersone,
-                mailWork,
-                phoneMobile,
-                phoneWork);
-        }
+            this.props.addContact(dataContact);
+        };
         if (this.props.route.type === 'edit') {
-            this.props.editContact(id,
-                name,
-                surname,
-                birthdayDate,
-                mailPersone,
-                mailWork,
-                phoneMobile,
-                phoneWork);
-        }
+            this.props.editContact(dataContact);
+        };
         hashHistory.push('/');
         this.props.updateContacts();
     }
 
     handleChange(event) {
-        const name = this.refs.name.value;
-        const surname = this.refs.surname.value;
-        const phoneMobile = this.refs.phoneMobile.value;
-        const phoneWork = this.refs.phoneWork.value;
-        const mailPersone = this.refs.mailPersone.value;
-        const mailWork = this.refs.mailWork.value;
-        const birthdayDate = this.refs.date.value;
-
         this.setState({
-            name,
-            surname,
-            phoneMobile,
-            phoneWork,
-            mailPersone,
-            mailWork,
-            birthdayDate
+            [event.target.name]: event.target.value
         });
     }
 
@@ -106,7 +86,7 @@ class FormContact extends React.Component {
                         <span className='star'>*</span>
                     </label>
                     <input type='text'
-                        ref='name'
+                        name='name'
                         value={this.state.name}
                         onChange={this.handleChange}
                         placeholder='Name'
@@ -115,7 +95,7 @@ class FormContact extends React.Component {
                     />
                     <label className='label'>Surname</label>
                     <input type='text'
-                        ref='surname'
+                        name='surname'
                         value={this.state.surname}
                         onChange={this.handleChange}
                         placeholder='Surname'
@@ -126,7 +106,7 @@ class FormContact extends React.Component {
                         <span className='star'>*</span>
                     </label>
                     <input type='tel'
-                        ref='phoneMobile'
+                        name='phoneMobile'
                         pattern='[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}'
                         placeholder='000-000-00-00'
                         value={this.state.phoneMobile}
@@ -136,7 +116,7 @@ class FormContact extends React.Component {
                     />
                     <label className='label'>Phone work</label>
                     <input type='tel'
-                        ref='phoneWork'
+                        name='phoneWork'
                         pattern='[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}'
                         placeholder='000-000-00-00'
                         value={this.state.phoneWork}
@@ -145,21 +125,21 @@ class FormContact extends React.Component {
                     />
                     <label className='label'>Email Persone</label>
                     <input type='email'
-                        ref='mailPersone'
+                        name='mailPersone'
                         value={this.state.mailPersone}
                         onChange={this.handleChange}
                         className='form-input'
                     />
                     <label className='label'>Email Work</label>
                     <input type='email'
-                        ref='mailWork'
+                        name='mailWork'
                         value={this.state.mailWork}
                         onChange={this.handleChange}
                         className='form-input'
                     />
                     <label className='label'>Birthday Date</label>
                     <input type='date'
-                        ref='date'
+                        name='birthdayDate'
                         value={this.state.birthdayDate}
                         onChange={this.handleChange}
                         className='form-input'

@@ -13,14 +13,7 @@ class ListContacts extends React.Component {
                 {contacts.map(contact =>
                     <Contact
                         key={contact.id}
-                        id={contact.id}
-                        name={contact.name}
-                        surname={contact.surname}
-                        mailPersone={contact.mail.persone}
-                        mailWork={contact.mail.work}
-                        phoneMobile={contact.phone.mobile}
-                        phonWork={contact.phone.work}
-                        birthdayDate={contact.birthdayDate}
+                        contact={contact}
                         onDelete={this.props.deleteContact}
                         onUpdate={this.props.updateContacts}
                     />)
